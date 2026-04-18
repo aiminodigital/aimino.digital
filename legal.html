@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal — Aimino Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #080c12;
+      --bg2: #0d1220;
+      --white: #ffffff;
+      --gray: #8892a4;
+      --blue: #3B82F6;
+      --blue-light: #60A5FA;
+      --border: rgba(59,130,246,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(8,12,18,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-logo span { color: var(--blue); }
+
+    .nav-back {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--blue-light); }
+
+    /* TABS */
+    .tabs-wrapper {
+      max-width: 860px;
+      margin: 3rem auto 0;
+      padding: 0 1.5rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .tab {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--gray);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab.active {
+      color: var(--blue-light);
+      border-bottom-color: var(--blue);
+    }
+
+    .tab:hover:not(.active) { color: var(--white); }
+
+    /* CONTENT */
+    .doc { display: none; padding-bottom: 5rem; }
+    .doc.active { display: block; }
+
+    .doc-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .doc-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .doc-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-date {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .doc-intro {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue-light);
+      letter-spacing: 0.03em;
+      margin: 2rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { color: var(--gray); margin-bottom: 0.75rem; }
+
+    p strong { color: var(--white); font-weight: 600; }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    ul li {
+      color: var(--gray);
+      padding: 0.3rem 0 0.3rem 1.25rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '→';
+      color: var(--blue);
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+      top: 0.35rem;
+    }
+
+    .highlight-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .highlight-box p { margin-bottom: 0.25rem; }
+
+    a { color: var(--blue-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    .legal-footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--gray);
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .tabs-wrapper { padding: 0 1rem; }
+      .doc-title { font-size: 1.5rem; }
+      .tab { padding: 0.6rem 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span>AI</span>MINO <span style="color:var(--blue-light);font-weight:300;font-size:0.9rem;">DIGITAL</span></div>
+  <a href="index.html" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio
+  </a>
+</nav>
+
+<div class="tabs-wrapper">
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('privacidad', this)">Política de Privacidad</button>
+    <button class="tab" onclick="showTab('terminos', this)">Términos y Condiciones</button>
+  </div>
+
+  <!-- POLÍTICA DE PRIVACIDAD -->
+  <div class="doc active" id="privacidad">
+    <div class="doc-header">
+      <p class="doc-label">Documento Legal</p>
+      <h1 class="doc-title">Política de Privacidad</h1>
+      <p class="doc-date">Última actualización: abril de 2026</p>
+    </div>
+
+    <div class="doc-intro">
+      En Aimino Digital respetamos tu privacidad. Este documento explica qué información recopilamos, cómo la usamos y cuáles son tus derechos, en cumplimiento de la <strong>Ley 25.326 de Protección de los Datos Personales</strong> de la República Argentina.
+    </div>
+
+    <h2>1. Responsable del tratamiento</h2>
+    <div class="highlight-box">
+      <p><strong>Aimino Digital</strong></p>
+      <p>Titular: Elian Aimino</p>
+      <p>Córdoba, Argentina</p>
+      <p>Contacto: <a href="mailto:aiminodigital@gmail.com">aiminodigital@gmail.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/543524418958">+54 3524 418958</a></p>
+    </div>
+
+    <h2>2. Información que recopilamos</h2>
+    <p>Solo recopilamos información que vos nos proporcionás de manera voluntaria al contactarnos. Esto puede incluir:</p>
+    <ul>
+      <li>Nombre y apellido</li>
+      <li>Dirección de correo electrónico</li>
+      <li>Número de teléfono o WhatsApp</li>
+      <li>Nombre de tu negocio o proyecto</li>
+      <li>Cualquier información que compartas en tu consulta</li>
+    </ul>
+    <p>Este sitio web no utiliza formularios de registro ni recopila datos de forma automática más allá de lo que tu navegador comparte habitualmente con cualquier servidor web (como dirección IP o tipo de navegador, a través de GitHub Pages).</p>
+
+    <h2>3. Finalidad del tratamiento</h2>
+    <p>Usamos tu información exclusivamente para:</p>
+    <ul>
+      <li>Responder a tu consulta o solicitud de presupuesto</li>
+      <li>Coordinar y desarrollar los servicios contratados</li>
+      <li>Enviarte información relevante sobre tu proyecto</li>
+    </ul>
+    <p>No utilizamos tus datos para publicidad de terceros, ni los cedemos, vendemos o compartimos con ninguna empresa externa.</p>
+
+    <h2>4. Base legal del tratamiento</h2>
+    <p>El tratamiento de tus datos se realiza con base en tu <strong>consentimiento expreso</strong> al contactarnos, y en la necesidad de ejecutar los servicios que nos solicitás, conforme al artículo 5 de la Ley 25.326.</p>
+
+    <h2>5. Conservación de los datos</h2>
+    <p>Conservamos tu información durante el tiempo necesario para prestarte el servicio y cumplir con eventuales obligaciones legales. Si en algún momento solicitás la eliminación de tus datos, procederemos a ello en un plazo de 5 días hábiles, salvo que la ley exija su conservación.</p>
+
+    <h2>6. Tus derechos</h2>
+    <p>De acuerdo con la Ley 25.326, tenés derecho a:</p>
+    <ul>
+      <li><strong>Acceder</strong> a los datos personales que tengamos sobre vos</li>
+      <li><strong>Rectificar</strong> datos incorrectos o desactualizados</li>
+      <li><strong>Suprimir</strong> tus datos de nuestros registros</li>
+      <li><strong>Oponerte</strong> al tratamiento en determinadas circunstancias</li>
+    </ul>
+    <p>Para ejercer cualquiera de estos derechos, podés escribirnos a <a href="mailto:aiminodigital@gmail.com">aiminodigital@gmail.com</a>. La Agencia de Acceso a la Información Pública (AAIP) es el organismo competente para atender denuncias y consultas sobre protección de datos personales en Argentina.</p>
+
+    <h2>7. Seguridad</h2>
+    <p>Adoptamos medidas razonables para proteger tu información frente a accesos no autorizados, pérdida o alteración. Sin embargo, ningún sistema de transmisión de datos por Internet es 100% seguro.</p>
+
+    <h2>8. Cookies y tecnologías de seguimiento</h2>
+    <p>Este sitio está alojado en GitHub Pages y no implementa cookies propias ni sistemas de seguimiento como Google Analytics. GitHub Pages puede registrar datos de acceso básicos según su propia política de privacidad.</p>
+
+    <h2>9. Cambios en esta política</h2>
+    <p>Podemos actualizar esta política ocasionalmente. Cualquier cambio significativo será comunicado a través de este mismo sitio. Te recomendamos revisarla periódicamente.</p>
+
+    <h2>10. Contacto</h2>
+    <p>Para cualquier consulta sobre esta política, podés contactarnos en <a href="mailto:aiminodigital@gmail.com">aiminodigital@gmail.com</a> o por WhatsApp al <a href="https://wa.me/543524418958">+54 3524 418958</a>.</p>
+  </div>
+
+  <!-- TÉRMINOS Y CONDICIONES -->
+  <div class="doc" id="terminos">
+    <div class="doc-header">
+      <p class="doc-label">Documento Legal</p>
+      <h1 class="doc-title">Términos y Condiciones</h1>
+      <p class="doc-date">Última actualización: abril de 2026</p>
+    </div>
+
+    <div class="doc-intro">
+      Al acceder y utilizar este sitio web, aceptás los presentes Términos y Condiciones. Si no estás de acuerdo con alguno de ellos, te pedimos que no utilices este sitio.
+    </div>
+
+    <h2>1. Identificación</h2>
+    <div class="highlight-box">
+      <p><strong>Aimino Digital</strong> es un emprendimiento de desarrollo web e inteligencia artificial.</p>
+      <p>Titular: Elian Aimino — Córdoba, Argentina</p>
+      <p>Contacto: <a href="mailto:aiminodigital@gmail.com">aiminodigital@gmail.com</a></p>
+    </div>
+
+    <h2>2. Uso del sitio</h2>
+    <p>Este sitio tiene como finalidad presentar los servicios de Aimino Digital y facilitar el contacto con potenciales clientes. Al utilizarlo, te comprometés a:</p>
+    <ul>
+      <li>Hacer un uso lícito y respetuoso del sitio</li>
+      <li>No intentar acceder a sistemas o datos no autorizados</li>
+      <li>No reproducir, distribuir ni modificar el contenido sin autorización expresa</li>
+    </ul>
+
+    <h2>3. Servicios</h2>
+    <p>Los servicios descritos en este sitio (desarrollo web, landing pages, aplicaciones con IA, automatizaciones) son de carácter referencial. Las condiciones específicas de cada proyecto —alcance, plazos, precio y forma de pago— se definen y acuerdan de forma individual con cada cliente antes del inicio del trabajo.</p>
+    <p>Ninguna información de este sitio constituye una oferta vinculante hasta tanto exista un acuerdo escrito entre las partes.</p>
+
+    <h2>4. Presupuestos y contratación</h2>
+    <p>El proceso de contratación habitual es el siguiente:</p>
+    <ul>
+      <li>El cliente se contacta a través de los medios disponibles en el sitio</li>
+      <li>Se acuerdan los términos del proyecto (alcance, precio, plazos)</li>
+      <li>Se abona el <strong>50% del total acordado</strong> para iniciar el trabajo</li>
+      <li>El <strong>50% restante</strong> se abona contra entrega del producto final</li>
+    </ul>
+    <p>Los precios se informan en pesos argentinos (ARS) salvo acuerdo expreso en otra moneda.</p>
+
+    <h2>5. Propiedad intelectual</h2>
+    <p>Todo el contenido de este sitio —textos, diseños, logos, código y materiales visuales— es propiedad de Aimino Digital y está protegido por las leyes de propiedad intelectual vigentes en Argentina.</p>
+    <p>Una vez abonado el total del proyecto contratado, el cliente adquiere los derechos de uso del producto entregado para los fines acordados. Aimino Digital se reserva el derecho de mencionar el trabajo realizado como caso de estudio o en su portfolio, salvo acuerdo de confidencialidad explícito.</p>
+
+    <h2>6. Limitación de responsabilidad</h2>
+    <p>Aimino Digital no se responsabiliza por:</p>
+    <ul>
+      <li>Interrupciones del servicio ajenas a nuestro control (caídas de servidores de terceros, problemas de conectividad, etc.)</li>
+      <li>Resultados comerciales del cliente derivados del uso de los productos entregados</li>
+      <li>Daños indirectos, pérdida de datos o lucro cesante</li>
+    </ul>
+    <p>Nuestra responsabilidad máxima ante cualquier reclamo se limita al monto efectivamente abonado por el cliente por el servicio en cuestión.</p>
+
+    <h2>7. Confidencialidad</h2>
+    <p>Toda información que el cliente nos comparta durante el desarrollo de un proyecto será tratada con confidencialidad y no será divulgada a terceros sin su consentimiento.</p>
+
+    <h2>8. Modificaciones</h2>
+    <p>Aimino Digital se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Los cambios serán publicados en esta misma página. El uso continuado del sitio tras la publicación de cambios implica la aceptación de los nuevos términos.</p>
+
+    <h2>9. Ley aplicable y jurisdicción</h2>
+    <p>Estos Términos se rigen por las leyes de la <strong>República Argentina</strong>. Ante cualquier controversia, las partes se someten a la jurisdicción de los tribunales ordinarios de la ciudad de <strong>Córdoba, Argentina</strong>, renunciando a cualquier otro fuero que pudiera corresponder.</p>
+
+    <h2>10. Contacto</h2>
+    <p>Para consultas relacionadas con estos términos, podés escribirnos a <a href="mailto:aiminodigital@gmail.com">aiminodigital@gmail.com</a>.</p>
+  </div>
+
+</div>
+
+<div class="legal-footer">
+  © 2026 Aimino Digital — Córdoba, Argentina
+</div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
