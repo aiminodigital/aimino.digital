@@ -450,11 +450,14 @@
   }
 
   /* ── PROJECT CARD ── */
-  .projects-grid {
+ .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-top: 1rem;
+  }
+  @media (max-width: 768px) {
+    .projects-grid { grid-template-columns: 1fr; }
   }
 
   .project-card {
@@ -494,7 +497,8 @@
     background: rgba(255,107,53,0.06);
     border-radius: 50%;
     bottom: -40px; left: -30px;
-  }
+  }.hipnosis-preview::before,
+  .hipnosis-preview::after { display: none; }
 
   .project-app-header {
     background: #FF6B35;
@@ -983,7 +987,7 @@
       </div>
 <!-- HIPNOSIS CARD -->
       <div class="project-card fade-in">
-        <div class="project-card-preview" style="background:#0e0e0e;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:2rem;">
+        <div class="project-card-preview hipnosis-preview" style="background:#0e0e0e;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:2rem;">
           <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
             <path d="M 60,55 m -52,0 a 52,52 0 1,1 104,0 a 52,52 0 0,1 -94,18" fill="none" stroke="#E24B4A" stroke-width="0.9" stroke-opacity="0.32" stroke-linecap="round"/>
             <path d="M 60,55 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 0,1 -72,14" fill="none" stroke="#E24B4A" stroke-width="0.9" stroke-opacity="0.54" stroke-linecap="round"/>
